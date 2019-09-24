@@ -1,0 +1,27 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf500
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red27\green31\blue34;}
+{\*\expandedcolortbl;;\csgray\c0\c0;\cssrgb\c14118\c16078\c18039;}
+\margl1440\margr1440\vieww13940\viewh12100\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \ul \ulc0 Ermiyas\ulnone  \ul Liyeh\ulnone \
+30711570\
+Homework/Lab Project #2\
+CSC 172 Online Section (Summer 2019 B)\
+I did not collaborate with anyone on this assignment.
+\f1 \
+\cb2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+For this project I had to build a program to make a tree out of lines given that crossed the unit square. Then I had to be able to tell if two given points were separated by any of the lines in the graph. I started by setting up classes for the points and the lines. Once that was done, I set up the structure for the binary search tree based off of the previous lab. Then I looked into how to build the tree. A method was given to test whether or not a point was Clockwise or counter clockwise from two other points. Using that and a method I wrote to test if two lines intersected, I built the tree. If the lines intersected the new line was inserted on both sides, other wise it was only inserted on one based off of whether the points were clockwise or counter clockwise to the given line. Testing whether the points were in the same region or not was very similar. I built a line out of the two points being tested, and if that "line" intersected any in the tree then they were not in the same space. I was able to have that "line" go through the tree just like it was being inserted so the run time could be kept long(n). Unfortunately another helper method had to be written to continue to divide the line down to its smallest segment in order to meet the specifications in the clarifications of the project. This adds to the runtime of the point checking. To look at the splitting of the line, I passed the node that the 2 points intersected with into the method, as well as the line that the points made. I then tested to see if the line segments created by the intersections of its children and the end points of the line to see which one intersected the line made by the test points. I then updated the line to be printed out, and went down into the tree more, until a null node was found. The only other way to exit this loop is when a line is intersected but the math does not end up working do to the small rounding errors throughout the process of testing. (example being 0.3 becoming 0.3000002). Once that was done I then began writing the method to count the external path lengths and the number of external nodes. I then set it up to print out the average path length based off of these values. I then set up several test cases. These can all be found in the project#2 folder, where the sample outputs are also stored. \
+\
+Overall I can say that this is not the best work I could have done, nor is probably the best way to approach solving the problem. If I were to redo this I would try to handle some of the degenerate cases I found in a more graceful way than I did.\
+\
+The degenerate cases I ended up handling were vertical lines, as well as lines that have the same starting or ending point being given in the initial graph. I looked into handling points that fell on a given line, as well as three lines intersecting in one point, but did not have time to handle those.\
+\
+The Average path length, based off of the data I collected increased each time a line with no intersections was increased and decreased if it intersected another line. This is because while the new line still increased the path length, if it intersected it would get inserted twice, thus increasing the number of external nodes. Naturally the more intersections the more it would decrease.\
+\
+}
